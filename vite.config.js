@@ -6,7 +6,7 @@ import path from 'path' // 关键代码
 // https://vitejs.dev/config/
 export default defineConfig({
 
-  base: '/',// 基础公共路径 默认/，用于定义开发和线上环境资源访问路径，线上模式需自行配置绝对路径
+  base: '/wall/',// 基础公共路径 默认/，用于定义开发和线上环境资源访问路径，线上模式需自行配置绝对路径
   plugins: [react()],
   resolve: {
     alias: {
