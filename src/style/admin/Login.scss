@@ -1,0 +1,61 @@
+.Login{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .ant-form{
+        width: 20%;
+    }
+    
+    background-image: linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%);
+    // 登录按钮相关
+    button, html [type='button'], [type='reset'], [type='submit'] {
+        --webkit-appearance: button;
+        display: block;
+        width: 100%;
+    }
+    h1{
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .login-form{
+      padding: 60px 50px;
+      box-shadow: rgba(255, 255, 255, 1) 2px 2px 8px 2px !important;
+    }
+}
+
+
+
+
+#components-form-demo-normal-login .login-form {
+    max-width: 300px;
+  }
+  #components-form-demo-normal-login .login-form-forgot {
+    float: right;
+  }
+  #components-form-demo-normal-login .ant-col-rtl .login-form-forgot {
+    float: left;
+  }
+  #components-form-demo-normal-login .login-form-button {
+    width: 100%;
+  }
+  .login-form-forgot{
+    float: right;
+    &::after{
+      content: "";
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+  }
+  }
+  
+
+  
+@media screen and (max-width: 1024px){
+  .ant-form{
+    width: 70% !important;
+}
+}
