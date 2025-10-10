@@ -8,7 +8,8 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 	<title>眠羊圈</title>
 
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<!-- 修正后：移除不支持的策略 -->
+	<meta http-equiv="Permissions-Policy" content=""> <!-- 或直接删除该标签 -->
 	<meta name="description" content="眠羊圈,照片墙">
 	<meta name="application-name" content="照片墙">
 	<meta name="author" content="眠羊圈">
@@ -17,7 +18,7 @@
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="眠羊圈 - 专注于媒体集成分享平台">
 	<meta property="og:description" content="一个专注于专注于媒体集成分享平台">
-	<meta property="og:url" content="https://sheep.sooi.top">
+	<meta property="og:url" content="https://ioov.github.io/wall/">
 	<meta property="og:site_name" content="眠羊圈">
 	<meta name="twitter:description" content="一个专注于专注于媒体集成分享平台">
 	<meta name="twitter:title" content=">眠羊圈 - 一个专注于专注于媒体集成分享平台">
@@ -37,7 +38,8 @@
 
 <body>
 	<div id="root"></div>
-	<script type="module" src="/src/main.jsx"></script>
+	<!-- 正确示例（根据实际位置调整） -->
+	<script src="src/main.jsx"></script> <!-- 相对路径，适用于文件在 blog/src/ 下 -->
 </body>
 
 </html>
