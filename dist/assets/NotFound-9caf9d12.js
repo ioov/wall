@@ -1,1 +1,0 @@
-import{j as s,N as a}from"./index-375816d3.js";const e=()=>s.jsx("main",{className:"NotFound",children:s.jsxs("div",{className:"item",children:[s.jsx("div",{children:"Not Found"}),s.jsx(a,{className:"link",to:"/",children:"GO HOME"})]})});export{e as default};

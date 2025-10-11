@@ -6,7 +6,7 @@ const NotFound = () => {
         <main className="NotFound">
             <div className='item'>
                 <div>Not Found</div>
-                <NavLink className='link' to='/'>GO HOME</NavLink>
+                <NavLink className='link'   to="/wall/">GO HOME</NavLink>
             </div>
 
         </main>
