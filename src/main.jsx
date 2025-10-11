@@ -8,7 +8,7 @@ import RotuerApp from '@/router/intercept.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 	// <React.StrictMode>
-	<BrowserRouter>
+	<BrowserRouter basename="/wall">
 		<React.Suspense fallback={<Loading />}>
 			{/* <RouterProvider router={Routers} /> */}
 			<RotuerApp />
