@@ -1,0 +1,72 @@
+// vite.config.js
+import { defineConfig } from "file:///F:/Code/web/SHEEP/H5/mian/node_modules/vite/dist/node/index.js";
+import react from "file:///F:/Code/web/SHEEP/H5/mian/node_modules/@vitejs/plugin-react/dist/index.mjs";
+import path from "path";
+var __vite_injected_original_dirname = "F:\\Code\\web\\SHEEP\\H5\\mian";
+var vite_config_default = defineConfig({
+  base: "/",
+  // 基础公共路径 默认/，用于定义开发和线上环境资源访问路径，线上模式需自行配置绝对路径
+  // base: process.env.NODE_ENV === 'production' 
+  //   ? '/wall/'  // 替换为你的实际项目名称
+  //   : '/',
+  plugins: [react()],
+  resolve: {
+    alias: {
+      // 关键代码
+      "@": path.resolve(__vite_injected_original_dirname, "./src")
+    }
+  },
+  build: {
+    minify: "terser",
+    // 必须开启：使用terserOptions才有效果
+    chunkSizeWarningLimit: 1500,
+    terserOptions: {
+      compress: {
+        //生产环境时移除console
+        drop_console: true,
+        drop_debugger: true
+      }
+    },
+    outDir: "dist"
+  },
+  css: {
+    /* CSS 预处理器 */
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "@/style/theme/index.scss";'
+      }
+    }
+  },
+  server: {
+    hmr: true,
+    host: "127.0.0.1",
+    // default 为localhost
+    port: 3001,
+    // default 5173
+    strictPort: true,
+    // 设为TRUE时若端口被占用会直接退出，FALSE会尝试下一个可用端口
+    open: true
+    // 自动打开浏览器；当此值为字符串时，会被用作 URL 的路径名
+    // https: true, // Type: boolean | https.ServerOptions 升级为TLS+HTTP/2，尽在proxy存在是生效
+    // proxy: {
+    //   // string shorthand: http://localhost:5173/foo -> http://localhost:4567/foo
+    //   '/foo': 'http://localhost:4567',
+    //   // with options: http://localhost:5173/api/bar-> http://jsonplaceholder.typicode.com/bar
+    //   '/api': {
+    //     target: 'http://jsonplaceholder.typicode.com',
+    //     changeOrigin: true,
+    //     rewrite: (path) => path.replace(/^\/api/, ''),
+    //   },
+    // } // 配置代理示例
+    // cors: true,// Type: boolean | CorsOptions，跨域默认全部允许
+    // fs:{
+    //   strict:true,// 默认true，只能访问工作区内的文件
+    //   allow:['./src'],// 允许访问的工作区内的入口，当strict为true时，访问allow列表以外的工作区外路径会403
+    //   deny:['.env', '.env.*', '*.{crt,pem}'],// 限制访问的文件，这些提供给vite dev serve敏感文件
+    // }
+  }
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcuanMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCJGOlxcXFxDb2RlXFxcXHdlYlxcXFxTSEVFUFxcXFxINVxcXFxtaWFuXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ZpbGVuYW1lID0gXCJGOlxcXFxDb2RlXFxcXHdlYlxcXFxTSEVFUFxcXFxINVxcXFxtaWFuXFxcXHZpdGUuY29uZmlnLmpzXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ltcG9ydF9tZXRhX3VybCA9IFwiZmlsZTovLy9GOi9Db2RlL3dlYi9TSEVFUC9INS9taWFuL3ZpdGUuY29uZmlnLmpzXCI7aW1wb3J0IHsgZGVmaW5lQ29uZmlnIH0gZnJvbSAndml0ZSdcbmltcG9ydCByZWFjdCBmcm9tICdAdml0ZWpzL3BsdWdpbi1yZWFjdCdcbmltcG9ydCBwYXRoIGZyb20gJ3BhdGgnIC8vIFx1NTE3M1x1OTUyRVx1NEVFM1x1NzgwMVxuXG5cbi8vIGh0dHBzOi8vdml0ZWpzLmRldi9jb25maWcvXG5leHBvcnQgZGVmYXVsdCBkZWZpbmVDb25maWcoe1xuXG4gIGJhc2U6ICcvJywvLyBcdTU3RkFcdTc4NDBcdTUxNkNcdTUxNzFcdThERUZcdTVGODQgXHU5RUQ4XHU4QkE0L1x1RkYwQ1x1NzUyOFx1NEU4RVx1NUI5QVx1NEU0OVx1NUYwMFx1NTNEMVx1NTQ4Q1x1N0VCRlx1NEUwQVx1NzNBRlx1NTg4M1x1OEQ0NFx1NkU5MFx1OEJCRlx1OTVFRVx1OERFRlx1NUY4NFx1RkYwQ1x1N0VCRlx1NEUwQVx1NkEyMVx1NUYwRlx1OTcwMFx1ODFFQVx1ODg0Q1x1OTE0RFx1N0Y2RVx1N0VERFx1NUJGOVx1OERFRlx1NUY4NFxuICAvLyBiYXNlOiBwcm9jZXNzLmVudi5OT0RFX0VOViA9PT0gJ3Byb2R1Y3Rpb24nIFxuICAvLyAgID8gJy93YWxsLycgIC8vIFx1NjZGRlx1NjM2Mlx1NEUzQVx1NEY2MFx1NzY4NFx1NUI5RVx1OTY0NVx1OTg3OVx1NzZFRVx1NTQwRFx1NzlGMFxuICAvLyAgIDogJy8nLFxuICBwbHVnaW5zOiBbcmVhY3QoKV0sXG4gIHJlc29sdmU6IHtcbiAgICBhbGlhczoge1xuICAgIC8vIFx1NTE3M1x1OTUyRVx1NEVFM1x1NzgwMVxuICAgICAgJ0AnOiBwYXRoLnJlc29sdmUoX19kaXJuYW1lLCAnLi9zcmMnKSxcbiAgICB9XG4gIH0sXG4gIGJ1aWxkOiB7XG5cdFx0bWluaWZ5OiBcInRlcnNlclwiLCAvLyBcdTVGQzVcdTk4N0JcdTVGMDBcdTU0MkZcdUZGMUFcdTRGN0ZcdTc1Mjh0ZXJzZXJPcHRpb25zXHU2MjREXHU2NzA5XHU2NTQ4XHU2NzlDXG5cdFx0Y2h1bmtTaXplV2FybmluZ0xpbWl0OjE1MDAsXG5cdFx0dGVyc2VyT3B0aW9uczoge1xuXHRcdFx0Y29tcHJlc3M6IHtcblx0XHRcdFx0Ly9cdTc1MUZcdTRFQTdcdTczQUZcdTU4ODNcdTY1RjZcdTc5RkJcdTk2NjRjb25zb2xlXG5cdFx0XHRcdGRyb3BfY29uc29sZTogdHJ1ZSxcblx0XHRcdFx0ZHJvcF9kZWJ1Z2dlcjogdHJ1ZSxcblx0XHRcdH0sXG5cdFx0fSxcbiAgICBvdXREaXI6ICdkaXN0Jyxcblx0fSxcbiAgY3NzOiB7XG4gICAgIC8qIENTUyBcdTk4ODRcdTU5MDRcdTc0MDZcdTU2NjggKi9cbiAgICBwcmVwcm9jZXNzb3JPcHRpb25zOiB7XG4gICAgICBzY3NzOiB7XG4gICAgICAgIGFkZGl0aW9uYWxEYXRhOiAnQGltcG9ydCBcIkAvc3R5bGUvdGhlbWUvaW5kZXguc2Nzc1wiOycsXG4gICAgICB9LFxuICAgIH1cbiAgfSxcbiAgc2VydmVyOiB7XG4gICAgaG1yOiB0cnVlLFxuICAgIGhvc3Q6IFwiMTI3LjAuMC4xXCIsICAvLyBkZWZhdWx0IFx1NEUzQWxvY2FsaG9zdFxuICAgIHBvcnQ6IDMwMDEsICAvLyBkZWZhdWx0IDUxNzNcbiAgICBzdHJpY3RQb3J0OiB0cnVlLCAvLyBcdThCQkVcdTRFM0FUUlVFXHU2NUY2XHU4MkU1XHU3QUVGXHU1M0UzXHU4OEFCXHU1MzYwXHU3NTI4XHU0RjFBXHU3NkY0XHU2M0E1XHU5MDAwXHU1MUZBXHVGRjBDRkFMU0VcdTRGMUFcdTVDMURcdThCRDVcdTRFMEJcdTRFMDBcdTRFMkFcdTUzRUZcdTc1MjhcdTdBRUZcdTUzRTNcbiAgICBvcGVuOiB0cnVlLCAvLyBcdTgxRUFcdTUyQThcdTYyNTNcdTVGMDBcdTZENEZcdTg5QzhcdTU2NjhcdUZGMUJcdTVGNTNcdTZCNjRcdTUwM0NcdTRFM0FcdTVCNTdcdTdCMjZcdTRFMzJcdTY1RjZcdUZGMENcdTRGMUFcdTg4QUJcdTc1MjhcdTRGNUMgVVJMIFx1NzY4NFx1OERFRlx1NUY4NFx1NTQwRFxuICAgIC8vIGh0dHBzOiB0cnVlLCAvLyBUeXBlOiBib29sZWFuIHwgaHR0cHMuU2VydmVyT3B0aW9ucyBcdTUzNDdcdTdFQTdcdTRFM0FUTFMrSFRUUC8yXHVGRjBDXHU1QzNEXHU1NzI4cHJveHlcdTVCNThcdTU3MjhcdTY2MkZcdTc1MUZcdTY1NDhcbiAgICAvLyBwcm94eToge1xuICAgIC8vICAgLy8gc3RyaW5nIHNob3J0aGFuZDogaHR0cDovL2xvY2FsaG9zdDo1MTczL2ZvbyAtPiBodHRwOi8vbG9jYWxob3N0OjQ1NjcvZm9vXG4gICAgLy8gICAnL2Zvbyc6ICdodHRwOi8vbG9jYWxob3N0OjQ1NjcnLFxuICAgIC8vICAgLy8gd2l0aCBvcHRpb25zOiBodHRwOi8vbG9jYWxob3N0OjUxNzMvYXBpL2Jhci0+IGh0dHA6Ly9qc29ucGxhY2Vob2xkZXIudHlwaWNvZGUuY29tL2JhclxuICAgIC8vICAgJy9hcGknOiB7XG4gICAgLy8gICAgIHRhcmdldDogJ2h0dHA6Ly9qc29ucGxhY2Vob2xkZXIudHlwaWNvZGUuY29tJyxcbiAgICAvLyAgICAgY2hhbmdlT3JpZ2luOiB0cnVlLFxuICAgIC8vICAgICByZXdyaXRlOiAocGF0aCkgPT4gcGF0aC5yZXBsYWNlKC9eXFwvYXBpLywgJycpLFxuICAgIC8vICAgfSxcbiAgICAvLyB9IC8vIFx1OTE0RFx1N0Y2RVx1NEVFM1x1NzQwNlx1NzkzQVx1NEY4QlxuICAgIC8vIGNvcnM6IHRydWUsLy8gVHlwZTogYm9vbGVhbiB8IENvcnNPcHRpb25zXHVGRjBDXHU4REU4XHU1N0RGXHU5RUQ4XHU4QkE0XHU1MTY4XHU5MEU4XHU1MTQxXHU4QkI4XG4gICAgLy8gZnM6e1xuICAgIC8vICAgc3RyaWN0OnRydWUsLy8gXHU5RUQ4XHU4QkE0dHJ1ZVx1RkYwQ1x1NTNFQVx1ODBGRFx1OEJCRlx1OTVFRVx1NURFNVx1NEY1Q1x1NTMzQVx1NTE4NVx1NzY4NFx1NjU4N1x1NEVGNlxuICAgIC8vICAgYWxsb3c6WycuL3NyYyddLC8vIFx1NTE0MVx1OEJCOFx1OEJCRlx1OTVFRVx1NzY4NFx1NURFNVx1NEY1Q1x1NTMzQVx1NTE4NVx1NzY4NFx1NTE2NVx1NTNFM1x1RkYwQ1x1NUY1M3N0cmljdFx1NEUzQXRydWVcdTY1RjZcdUZGMENcdThCQkZcdTk1RUVhbGxvd1x1NTIxN1x1ODg2OFx1NEVFNVx1NTkxNlx1NzY4NFx1NURFNVx1NEY1Q1x1NTMzQVx1NTkxNlx1OERFRlx1NUY4NFx1NEYxQTQwM1xuICAgIC8vICAgZGVueTpbJy5lbnYnLCAnLmVudi4qJywgJyoue2NydCxwZW19J10sLy8gXHU5NjUwXHU1MjM2XHU4QkJGXHU5NUVFXHU3Njg0XHU2NTg3XHU0RUY2XHVGRjBDXHU4RkQ5XHU0RTlCXHU2M0QwXHU0RjlCXHU3RUQ5dml0ZSBkZXYgc2VydmVcdTY1NEZcdTYxMUZcdTY1ODdcdTRFRjZcbiAgICAvLyB9XG4gIH1cbn0pXG4iXSwKICAibWFwcGluZ3MiOiAiO0FBQXlRLFNBQVMsb0JBQW9CO0FBQ3RTLE9BQU8sV0FBVztBQUNsQixPQUFPLFVBQVU7QUFGakIsSUFBTSxtQ0FBbUM7QUFNekMsSUFBTyxzQkFBUSxhQUFhO0FBQUEsRUFFMUIsTUFBTTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsRUFJTixTQUFTLENBQUMsTUFBTSxDQUFDO0FBQUEsRUFDakIsU0FBUztBQUFBLElBQ1AsT0FBTztBQUFBO0FBQUEsTUFFTCxLQUFLLEtBQUssUUFBUSxrQ0FBVyxPQUFPO0FBQUEsSUFDdEM7QUFBQSxFQUNGO0FBQUEsRUFDQSxPQUFPO0FBQUEsSUFDUCxRQUFRO0FBQUE7QUFBQSxJQUNSLHVCQUFzQjtBQUFBLElBQ3RCLGVBQWU7QUFBQSxNQUNkLFVBQVU7QUFBQTtBQUFBLFFBRVQsY0FBYztBQUFBLFFBQ2QsZUFBZTtBQUFBLE1BQ2hCO0FBQUEsSUFDRDtBQUFBLElBQ0UsUUFBUTtBQUFBLEVBQ1g7QUFBQSxFQUNDLEtBQUs7QUFBQTtBQUFBLElBRUgscUJBQXFCO0FBQUEsTUFDbkIsTUFBTTtBQUFBLFFBQ0osZ0JBQWdCO0FBQUEsTUFDbEI7QUFBQSxJQUNGO0FBQUEsRUFDRjtBQUFBLEVBQ0EsUUFBUTtBQUFBLElBQ04sS0FBSztBQUFBLElBQ0wsTUFBTTtBQUFBO0FBQUEsSUFDTixNQUFNO0FBQUE7QUFBQSxJQUNOLFlBQVk7QUFBQTtBQUFBLElBQ1osTUFBTTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLEVBa0JSO0FBQ0YsQ0FBQzsiLAogICJuYW1lcyI6IFtdCn0K
